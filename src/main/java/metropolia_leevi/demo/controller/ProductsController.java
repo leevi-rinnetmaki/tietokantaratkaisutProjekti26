@@ -20,6 +20,7 @@ public class ProductsController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    /*
     @GetMapping("/deleteproduct/{id}")
     public ResponseEntity<String> deleteProduct(@PathVariable Integer id) {
         return repository.findById(id)
@@ -29,10 +30,14 @@ public class ProductsController {
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
+     */
 
+    /*
     @PostMapping("/increaseallpricesbyone")
     public String increaseAll() {
         int count = repository.increaseAllPricesByOne();
         return count + " products updated";
     }
+
+     */
 }
