@@ -1,6 +1,8 @@
 # Tietokantaratkaisu projekti 26
 
 + GET localhost:8080/products/findbyid{id}
++ GET localhost:8080/products/all
++ GET localhost:8080/products/findbypricerange?minprice{}&maxprice{}
 + GET localhost:8080/productcategories/findbyid{id}
 + GET localhost:8080/productcategories/all
 + GET localhost:8080/customerorders/findbyid{id}
@@ -18,3 +20,8 @@ orderitems ON orderitems.order_id = orders.id
 
 GROUP BY customers.id
 ```
+The database products has an added "available" column which is VARCHAR(1).
+If the value is "Y", then it is converted to a boolean True.
+
+
+Every API request is lowercase foe ease of use.
