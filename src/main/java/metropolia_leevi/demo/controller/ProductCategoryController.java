@@ -1,5 +1,5 @@
 package metropolia_leevi.demo.controller;
-import metropolia_leevi.demo.ProductCategoryRepository;
+import metropolia_leevi.demo.repository.ProductCategoryRepository;
 import metropolia_leevi.demo.entity.ProductCategory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

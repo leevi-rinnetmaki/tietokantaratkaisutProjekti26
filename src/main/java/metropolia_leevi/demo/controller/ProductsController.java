@@ -1,5 +1,5 @@
 package metropolia_leevi.demo.controller;
-import metropolia_leevi.demo.ProductsRepository;
+import metropolia_leevi.demo.repository.ProductsRepository;
 import metropolia_leevi.demo.entity.Products;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,6 @@
 package metropolia_leevi.demo.entity;
 
-import metropolia_leevi.demo.CustomerRepository;
+import metropolia_leevi.demo.repository.CustomerRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

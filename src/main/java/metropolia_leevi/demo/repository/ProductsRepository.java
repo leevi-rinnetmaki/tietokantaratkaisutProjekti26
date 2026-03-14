@@ -1,4 +1,4 @@
-package metropolia_leevi.demo;
+package metropolia_leevi.demo.repository;
 import org.springframework.transaction.annotation.Transactional;
 import metropolia_leevi.demo.entity.Products;
 import org.springframework.data.jpa.repository.JpaRepository;
