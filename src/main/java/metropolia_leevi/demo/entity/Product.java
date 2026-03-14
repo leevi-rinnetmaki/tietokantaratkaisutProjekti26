@@ -1,11 +1,11 @@
 package metropolia_leevi.demo.entity;
 import jakarta.persistence.*;
-import metropolia_leevi.demo.converter.ProductsConverter;
-
+import metropolia_leevi.demo.converter.ProductConverter;
 import java.math.BigDecimal;
 
 @Entity
-public class Products {
+@Table(name = "products")
+public class Product {
 
     @Id
     private int id;
@@ -18,10 +18,10 @@ public class Products {
     private ProductCategory productCategory;
     private Integer supplierId;
     @Column(name = "available", columnDefinition = "CHAR(1)")
-    @Convert(converter = ProductsConverter.class)
+    @Convert(converter = ProductConverter.class)
     private Boolean available;
 
-    public Products() {
+    public Product() {
     }
 
     public int getId() {

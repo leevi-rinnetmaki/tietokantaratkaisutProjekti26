@@ -8,5 +8,3 @@ public class HelloController {
         return "Today might be 23.02.2026";
     }
 }
-
-

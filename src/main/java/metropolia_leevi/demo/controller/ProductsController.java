@@ -1,43 +1,33 @@
 package metropolia_leevi.demo.controller;
-import metropolia_leevi.demo.repository.ProductsRepository;
-import metropolia_leevi.demo.entity.Products;
+import metropolia_leevi.demo.dto.ProductCategoryDto;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 
+import metropolia_leevi.demo.dto.ProductDto;
+import metropolia_leevi.demo.service.ProductService;
+
+import java.util.List;
+
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/products")
 public class ProductsController {
 
-    private final ProductsRepository repository;
-    public ProductsController(ProductsRepository repository) {
-        this.repository = repository;
+    private final ProductService service;
+    public ProductsController(ProductService service) {
+        this.service = service;
     }
 
     @GetMapping("/findbyid/{id}")
-    public ResponseEntity<Products> getProductsById(@PathVariable Integer id) {
-        return repository.findById(id)
-                .map(products -> ResponseEntity.ok(products))
+    public ResponseEntity<ProductDto> getProductsById(@PathVariable Integer id) {
+
+        return service.getProductById(id)
+                .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    /*
-    @GetMapping("/deleteproduct/{id}")
-    public ResponseEntity<String> deleteProduct(@PathVariable Integer id) {
-        return repository.findById(id)
-                .map(product -> {
-                    repository.delete(product);
-                    return ResponseEntity.ok("deleting cascade");
-                })
-                .orElse(ResponseEntity.notFound().build());
+    @GetMapping("/all")
+    public ResponseEntity<List<ProductDto>> getAll() {
+        List<ProductDto> products = service.findAllProducts();
+        return ResponseEntity.ok(products);
     }
-     */
-
-    /*
-    @PostMapping("/increaseallpricesbyone")
-    public String increaseAll() {
-        int count = repository.increaseAllPricesByOne();
-        return count + " products updated";
-    }
-
-     */
 }
