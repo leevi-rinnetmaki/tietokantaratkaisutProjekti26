@@ -108,6 +108,16 @@ If the value is "Y", then it is converted to a boolean True.
 In the database, there are indexes made for (price), (price, available), (name, description).
 These are the most common searches for a user.
 
+### Indexes
+```sql
+CREATE INDEX idx_products_price ON products(price);
+
+CREATE INDEX idx_products_price_available ON products(price, available);
+
+ALTER TABLE products
+ADD FULLTEXT INDEX idx_products_name_description (name, description);
+```
+
 ### Customer order view in the db
 ```sql
 SELECT customers.id, customers.first_name, customers.last_name, SUM(orderitems.quantity) AS quantity_of_orders, SUM(orderitems.unit_price) AS price_of_orders
