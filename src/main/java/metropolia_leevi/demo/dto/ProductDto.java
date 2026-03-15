@@ -9,13 +9,15 @@ public class ProductDto {
     private String description;
     private BigDecimal price;
     private Boolean available;
+    private String productCategory;
 
-    public ProductDto(int id, String name, String description, BigDecimal price, Boolean available) {
+    public ProductDto(int id, String name, String description, BigDecimal price, Boolean available,  String productCategory) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.available = available;
+        this.productCategory = productCategory;
     }
 
     public int getId() { return id; }
@@ -23,4 +25,5 @@ public class ProductDto {
     public String getDescription() { return description; }
     public BigDecimal getPrice() { return price; }
     public Boolean getAvailable() { return available; }
+    public String getProductCategory() { return productCategory; }
 }
