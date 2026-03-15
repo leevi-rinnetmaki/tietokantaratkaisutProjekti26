@@ -5,15 +5,17 @@
 ### List of all https requests
 Every API request is lowercase for ease of use.
 
->GET localhost:8080/products/search[id][q][minrange][maxrange][available]
+-GET localhost:8080/products/search[id][q][minrange][maxrange][available]
 
->GET localhost:8080/productcategories/findbyid{id}
+-GET localhost:8080/productcategories/findbyid{id}
 
->GET localhost:8080/productcategories/all
+-GET localhost:8080/productcategories/all
 
->GET localhost:8080/customerorders/findbyid{id}
+-GET localhost:8080/customerorders/findbyid{id}
 
->GET localhost:8080/customerorders/all
+-GET localhost:8080/customerorders/all
+
+---
 
 ### GET /products/search
 
@@ -36,6 +38,7 @@ Search products with optional filters.
 
 Searches for products that have the words "quantum" and "key". Minimum price is 4 and maximum is 800. Availability is set as null.
 
+---
 
 ### GET /productcategory/findbyid
 
@@ -50,6 +53,7 @@ Search product categories with a given id.
 > 
 Searches for a product category with an id of 3.
 
+---
 
 ### GET /productcategory/all
 
@@ -64,6 +68,7 @@ Search all product categories.
 >
 Searches for all product categories.
 
+---
 
 ### GET /customerorders/findbyid
 
@@ -78,6 +83,7 @@ Search customer orders with a customers id.
 >
 Searches for all the orders of a customer with an id of 3.
 
+---
 
 ### GET /customerorders/all
 
@@ -91,6 +97,8 @@ Search all customer orders.
 >localhost:8080/customerorders/all
 >
 Searches for all customer orders (it is a long list).
+
+---
 
 ## 2. Database changes
 
