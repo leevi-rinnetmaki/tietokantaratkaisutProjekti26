@@ -9,12 +9,15 @@ public class OrderItem {
 
     @EmbeddedId
     private OrderItemId id;
+
     private Integer quantity;
     private BigDecimal unitPrice;
+
     @ManyToOne
     @MapsId("orderId")
     @JoinColumn(name = "order_id")
     private Order order;
+
     @ManyToOne
     @MapsId("productId")
     @JoinColumn(name = "product_id")
@@ -22,19 +25,43 @@ public class OrderItem {
 
     public OrderItem() {}
 
-    // getters and setters
-    public OrderItemId getId() { return id; }
-    public void setId(OrderItemId id) { this.id = id; }
+    public OrderItemId getId() {
+        return id;
+    }
 
-    public Integer getQuantity() { return quantity; }
-    public void setQuantity(Integer quantity) { this.quantity = quantity; }
+    public void setId(OrderItemId id) {
+        this.id = id;
+    }
 
-    public BigDecimal getUnitPrice() { return unitPrice; }
-    public void setUnitPrice(BigDecimal unitPrice) { this.unitPrice = unitPrice; }
+    public Integer getQuantity() {
+        return quantity;
+    }
 
-    public Order getOrder() { return order; }
-    public void setOrder(Order order) { this.order = order; }
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 
-    public Product getProduct() { return product; }
-    public void setProduct(Product product) { this.product = product; }
+    public BigDecimal getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(BigDecimal unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 }

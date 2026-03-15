@@ -15,6 +15,10 @@ Every API request is lowercase for ease of use.
 
 -GET localhost:8080/customerorders/all
 
+-POST localhost:8080/create
+
+-POST localhost:8080/additem
+
 ---
 
 ### GET /products/search
@@ -97,6 +101,77 @@ Search all customer orders.
 >localhost:8080/customerorders/all
 >
 Searches for all customer orders (it is a long list).
+
+---
+
+### POST /orders/create
+
+Create a new order
+
+**Query Parameter:**
+
+{
+- `[customerId]` - integer - filter by customer ID
+- `[orderDate]` - local date time - set the date of order
+- `[deliveryDate]` - local date time - set the date of delivery
+- `[shippingAddressId]` - integer - Set the shipping address id
+- `[status]` - string - Set the status of the order
+}
+
+**Example Request:**
+>localhost:8080/orders/create
+Content-Type: application/json
+{
+"customerId": 1,
+"orderDate": "2026-03-15T14:30:00",
+"deliveryDate": "2026-03-20T12:00:00",
+"shippingAddressId": 3,
+"status": "pending"
+}
+
+Add a new order
+
+---
+
+### POST /orders/additem
+
+Add an item to an order
+
+**Query Parameter:**
+
+{
+- `[customerId]` - integer - filter by customer ID
+- `[orderDate]` - local date time - set the date of order
+- `[deliveryDate]` - local date time - set the date of delivery
+- `[shippingAddressId]` - integer - Set the shipping address id
+- `[status]` - string - Set the status of the order
+
+
+- `[order]` — object — The order to which this item is added:
+    - `[id]` - integer - ID of the order
+  }
+  {
+- `"order": {"id": 1
+  },
+  "product": {
+  "id": 12
+  },
+  "quantity": 5,
+  "unitPrice": 3.00
+  }
+
+**Example Request:**
+>localhost:8080/orders/create
+Content-Type: application/json
+{
+"customerId": 1,
+"orderDate": "2026-03-15T14:30:00",
+"deliveryDate": "2026-03-20T12:00:00",
+"shippingAddressId": 3,
+"status": "pending"
+}
+
+Add a new order
 
 ---
 

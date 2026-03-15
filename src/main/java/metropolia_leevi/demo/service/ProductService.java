@@ -55,7 +55,8 @@ public class ProductService {
                         p.getDescription(),
                         p.getPrice(),
                         p.getAvailable(),
-                        p.getCategoryId().getName()
+                        p.getCategoryId().getName(),
+                        p.getStockQuantity()
                 ))
                 .toList();
     }
