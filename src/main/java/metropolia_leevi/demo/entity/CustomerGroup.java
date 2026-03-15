@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.HashSet;
 import java.util.Set;
-
+/*
 @Entity
 @Table(name = "customergroup")
 public class CustomerGroup {
@@ -41,3 +41,4 @@ public class CustomerGroup {
         this.customers = customers;
     }
 }
+*/

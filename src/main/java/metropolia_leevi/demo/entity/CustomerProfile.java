@@ -1,7 +1,7 @@
 package metropolia_leevi.demo.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-
+/*
 @Entity
 @Table(name = "customerprofile")
 public class CustomerProfile {
@@ -51,3 +51,4 @@ public class CustomerProfile {
         this.avatar_url = avatar_url;
     }
 }
+*/
