@@ -111,11 +111,11 @@ Create a new order
 **Query Parameter:**
 
 {
-- `[customerId]` - integer - filter by customer ID
-- `[orderDate]` - local date time - set the date of order
-- `[deliveryDate]` - local date time - set the date of delivery
-- `[shippingAddressId]` - integer - Set the shipping address id
-- `[status]` - string - Set the status of the order
+- `[customerId]` — integer — filter by customer ID
+- `[orderDate]` — local date time — set the date of order
+- `[deliveryDate]` — local date time — set the date of delivery
+- `[shippingAddressId]` — integer — Set the shipping address id
+- `[status]` — string — Set the status of the order
 }
 
 **Example Request:**
@@ -129,7 +129,7 @@ Content-Type: application/json
 "status": "pending"
 }
 
-Add a new order
+Adds a new order.
 
 ---
 
@@ -148,30 +148,30 @@ Add an item to an order
 
 
 - `[order]` — object — The order to which this item is added:
-    - `[id]` - integer - ID of the order
-  }
-  {
-- `"order": {"id": 1
-  },
-  "product": {
-  "id": 12
-  },
-  "quantity": 5,
-  "unitPrice": 3.00
-  }
+    - `[id]` — integer — ID of the order
+- `[order]` — integer — ID of an existing order
+    - `[id]` — integer — Id of the product being added
+- `[product]` — object — the product being added
+    - `[id]` — integer — ID of the product
+- `[quantity]` — integer — number of units to add
+- `[unitPrice]`— decimal — price per unit of this item
+      }
 
 **Example Request:**
->localhost:8080/orders/create
+>localhost:8080/orders/additem
 Content-Type: application/json
 {
-"customerId": 1,
-"orderDate": "2026-03-15T14:30:00",
-"deliveryDate": "2026-03-20T12:00:00",
-"shippingAddressId": 3,
-"status": "pending"
+"order": {
+"id": 1
+},
+"product": {
+"id": 12
+},
+"quantity": 5,
+"unitPrice": 3.00
 }
 
-Add a new order
+Adds a new item to an order
 
 ---
 
