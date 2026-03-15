@@ -19,44 +19,9 @@ public class ProductService {
         this.repository = repository;
     }
 
-    public Optional<ProductDto> getProductById(Integer id) {
-        return repository.findById(id)
-                .map(p -> new ProductDto(
-                        p.getId(),
-                        p.getName(),
-                        p.getDescription(),
-                        p.getPrice(),
-                        p.getAvailable()
-                ));
-    }
-
-    public List<ProductDto> findAllProducts() {
-        return repository.findAll()
-                .stream()
-                .map(p -> new ProductDto(
-                        p.getId(),
-                        p.getName(),
-                        p.getDescription(),
-                        p.getPrice(),
-                        p.getAvailable()
-                )).toList();
-    }
-
-    public List<ProductDto> findByPriceRange(BigDecimal minPrice, BigDecimal maxPrice) {
-        return repository.findByPriceBetween(minPrice, maxPrice)
-                .stream()
-                .map(p -> new ProductDto(
-                        p.getId(),
-                        p.getName(),
-                        p.getDescription(),
-                        p.getPrice(),
-                        p.getAvailable()
-                ))
-                .toList();
-    }
-
     public List<ProductDto> searchProducts(
             Integer id,
+            String q,
             BigDecimal minprice,
             BigDecimal maxprice,
             Boolean available,
@@ -67,6 +32,24 @@ public class ProductService {
         if (id != null) {
             products = products.stream()
                     .filter(p -> p.getId() == id)
+                    .toList();
+        }
+        if (q != null && !q.isBlank()) {
+
+            String[] words = q.toLowerCase().trim().split("\\s+");
+
+            products = products.stream()
+                    .filter(p -> {
+                        String name = p.getName().toLowerCase();
+                        String description = p.getDescription().toLowerCase();
+
+                        for (String word : words) {
+                            if (!(name.contains(word) || description.contains(word))) {
+                                return false;
+                            }
+                        }
+                        return true;
+                    })
                     .toList();
         }
         if (minprice != null) {

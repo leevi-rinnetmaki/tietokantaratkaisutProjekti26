@@ -1,4 +1,5 @@
 package metropolia_leevi.demo.repository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 import metropolia_leevi.demo.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,6 +18,13 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
     """)
     int increaseAllPricesByOne();
 
-    List<Product> findByPriceBetween(BigDecimal minPrice, BigDecimal maxPrice);
+    @Query("""
+        SELECT p FROM Product p
+        WHERE
+        (:search IS NULL OR
+        LOWER(p.name) LIKE LOWER(CONCAT('%', :search, '%')) OR
+        LOWER(p.description) LIKE LOWER(CONCAT('%', :search, '%')))
+        """)
+    List<Product> searchByText(@Param("search") String search);
 
 }
