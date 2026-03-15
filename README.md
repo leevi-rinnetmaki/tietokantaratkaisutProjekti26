@@ -5,19 +5,13 @@
 ### List of all https requests
 Every API request is lowercase for ease of use.
 
--GET localhost:8080/products/search[id][q][minrange][maxrange][available]
-
--GET localhost:8080/productcategories/findbyid{id}
-
--GET localhost:8080/productcategories/all
-
--GET localhost:8080/customerorders/findbyid{id}
-
--GET localhost:8080/customerorders/all
-
--POST localhost:8080/create
-
--POST localhost:8080/additem
+- GET localhost:8080/products/search[id][q][minrange][maxrange][available]
+- GET localhost:8080/productcategories/findbyid{id}
+- GET localhost:8080/productcategories/all
+- GET localhost:8080/customerorders/findbyid{id}
+- GET localhost:8080/customerorders/all
+- POST localhost:8080/orders/create
+- POST localhost:8080/orders/additem
 
 ---
 
@@ -205,8 +199,3 @@ orderitems ON orderitems.order_id = orders.id
 
 GROUP BY customers.id
 ```
-
-
-## 3. Other
-
-The product entity has a many-to-one connection to product category for product searches also to show the product category.
