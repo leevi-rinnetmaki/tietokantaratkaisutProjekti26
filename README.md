@@ -104,13 +104,11 @@ Create a new order
 
 **Query Parameter:**
 
-{
 - `[customerId]` — integer — filter by customer ID
 - `[orderDate]` — local date time — set the date of order
 - `[deliveryDate]` — local date time — set the date of delivery
 - `[shippingAddressId]` — integer — Set the shipping address id
 - `[status]` — string — Set the status of the order
-}
 
 **Example Request:**
 >localhost:8080/orders/create
@@ -129,16 +127,9 @@ Adds a new order.
 
 ### POST /orders/additem
 
-Add an item to an order
+Add an item to an order. Removes the quantity amount from products.
 
 **Query Parameter:**
-
-{
-- `[customerId]` - integer - filter by customer ID
-- `[orderDate]` - local date time - set the date of order
-- `[deliveryDate]` - local date time - set the date of delivery
-- `[shippingAddressId]` - integer - Set the shipping address id
-- `[status]` - string - Set the status of the order
 
 
 - `[order]` — object — The order to which this item is added:
@@ -149,7 +140,6 @@ Add an item to an order
     - `[id]` — integer — ID of the product
 - `[quantity]` — integer — number of units to add
 - `[unitPrice]`— decimal — price per unit of this item
-      }
 
 **Example Request:**
 >localhost:8080/orders/additem
